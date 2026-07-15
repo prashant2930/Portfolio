@@ -56,7 +56,7 @@ export const PORTFOLIO_DATA = {
     linkedinUsername: "prashant-srivastava-ps",
     githubUrl: "https://github.com/prashant2930",
     linkedinUrl: "https://linkedin.com/in/prashant-srivastava-ps",
-    resumeUrl: `${import.meta.env.BASE_URL}files/Prashant_Srivastava_Resume.pdf`,
+    resumeUrl: `${import.meta.env.BASE_URL}files/Prashant_Srivastava_Resume.pdf?v=${new Date().getTime()}`,
     headline: "I design structured software solutions and analyze complex datasets.",
     aboutBrief: "I am a Computer Science and Engineering graduate with a robust foundation in software engineering, Java development, structured problem solving, and applied artificial intelligence. My technical work focuses on building indexing structures, refining text processing models, and extracting utility from complex data pipelines. I approach engineering problems with analytical precision, seeking to understand how layers of a system interface and finding optimal pathways to implement modular, maintainable, and highly efficient code.",
   },
