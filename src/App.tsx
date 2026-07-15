@@ -299,11 +299,11 @@ export default function App() {
                 </p>
                 
                 <h1 className="font-display font-extrabold text-[clamp(2rem,5vw,3.75rem)] tracking-tight text-brand-charcoal leading-[1.1] md:leading-[1.12]">
-                  I design <span className="underline decoration-brand-indigo/80 decoration-3 underline-offset-4">structured systems</span> and analyze complex data.
+                  I build <span className="underline decoration-brand-indigo/80 decoration-3 underline-offset-4">structured software</span> and solve complex problems.
                 </h1>
                 
                 <p className="max-w-xl text-sm md:text-base text-brand-charcoal/80 font-light leading-relaxed">
-                  Early-career Computer Science Engineer specializing in <span className="font-semibold text-brand-charcoal">Java development</span>, algorithmic efficiency, and the application of machine learning workflows.
+                  Early-career Computer Science Engineer focused on <span className="font-semibold text-brand-charcoal">Java development</span>, data structures and algorithms, and building practical software solutions with applied AI.
                 </p>
               </div>
 
