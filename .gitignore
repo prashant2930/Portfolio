@@ -6,3 +6,20 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary / Research files
+job_research.py
+job_research_state.json
+*.xlsx
+
