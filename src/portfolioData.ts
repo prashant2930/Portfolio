@@ -5,10 +5,8 @@ export interface Project {
   technologies: string[];
   description: string;
   highlights: string[];
-  githubUrl?: string;
-  isPrivate?: boolean;
-  imagePath?: string;
-  indexStr: string;
+  githubUrl: string;
+  filterTags: string[];
 }
 
 export interface SkillCategory {
@@ -29,162 +27,127 @@ export interface EducationItem {
 export interface TrainingItem {
   title: string;
   provider: string;
-  location: string;
-  highlights: string[];
-}
-
-export interface CertificationItem {
-  title: string;
-  issuer: string;
+  status?: string;
 }
 
 export interface AchievementItem {
-  title: string;
   description: string;
-  category: "leadership" | "technical" | "general";
 }
 
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Prashant Srivastava",
-    title: "Software Engineer",
-    subtitle: "Specializing in Java & Applied AI",
-    location: "Noida, Uttar Pradesh, India",
-    availability: "Open to relocation",
+    title: "Computer Science Graduate",
+    subtitle: "Software Engineering & AI",
     email: "prashant.sri2930@gmail.com",
-    githubUsername: "prashant2930",
-    linkedinUsername: "prashant-srivastava-ps",
+    phone: "+91-8922833021",
     githubUrl: "https://github.com/prashant2930",
-    linkedinUrl: "https://linkedin.com/in/prashant-srivastava-ps",
-    resumeUrl: `${import.meta.env.BASE_URL}files/Prashant_Srivastava_Resume.pdf?v=${new Date().getTime()}`,
-    headline: "I design structured software solutions and analyze complex datasets.",
-    aboutBrief: "I am a Computer Science and Engineering graduate with a robust foundation in software engineering, Java development, structured problem solving, and applied artificial intelligence. My technical work focuses on building indexing structures, refining text processing models, and extracting utility from complex data pipelines. I approach engineering problems with analytical precision, seeking to understand how layers of a system interface and finding optimal pathways to implement modular, maintainable, and highly efficient code.",
+    linkedinUrl: "https://www.linkedin.com/in/prashant-srivastava-ps/",
+    headline: "Building software systems and AI-powered applications with a focus on strong engineering fundamentals.",
+    aboutBrief: "I am a Computer Science Graduate specializing in Software Engineering and Applied Artificial Intelligence. My background covers designing modular software components, building text parsing and data analysis pipelines, and solving algorithmic problems. I approach software engineering with a focus on clean architecture, performance, and practical systems development."
   },
   
   projects: [
     {
-      id: "search-engine",
-      title: "Mini Search Engine",
-      category: "Information Retrieval & Systems",
-      technologies: ["Java", "TF-IDF", "Information Retrieval", "Data Structures"],
-      description: "A highly-optimized system built to demonstrate modular document indexing, multi-keyword lookup, and ranked search result retrieval using architectural principles of search systems.",
+      id: "job-hunter-ai",
+      title: "JobHunterAI",
+      category: "AI & Backend Engineering",
+      technologies: ["Python", "FastAPI", "React", "TypeScript", "SQLite", "Gemini API"],
+      description: "AI-powered job aggregation and matching platform for discovering and ranking relevant opportunities.",
       highlights: [
-        "Inverted Indexing: Structured a custom inverted index utilizing efficient Java collection frameworks for rapid keyword-to-document mappings.",
-        "Relevance Ranking: Implemented high-fidelity TF-IDF (Term Frequency-Inverse Document Frequency) weighting calculations to weigh word importance across indexed assets.",
-        "Mathematical Retrieval: Integrated cosine similarity vector computations to calculate the precise angular distance between keyword queries and indexed texts, returning sorted, relevance-ranked results."
+        "Integrated listings from 4 job sources into a normalized schema.",
+        "Designed a 100-point hybrid matching engine using skills, experience, job attributes, and deterministic relevance rules.",
+        "Implemented resume/document extraction, job normalization, seniority filtering, and Pytest coverage for core workflows."
       ],
-      isPrivate: true,
-      indexStr: "01",
-      imagePath: "/assets/projects/search-engine.webp"
+      githubUrl: "https://github.com/prashant2930/JobHunterAI",
+      filterTags: ["Software Engineering", "AI / LLM", "Backend"]
+    },
+    {
+      id: "team-task-manager",
+      title: "Team Task Manager",
+      category: "Full-Stack Web Application",
+      technologies: ["Next.js", "React", "TypeScript", "MongoDB", "Mongoose", "Tailwind CSS", "JWT", "Zod"],
+      description: "A collaborative task management platform supporting multi-user assignment queues, priority scheduling, and structured logging of milestone completion.",
+      highlights: [
+        "Built a responsive full-stack team application using Next.js App Router for server-side state and API routes.",
+        "Implemented data persistence using MongoDB and Mongoose with schema validation and query optimization.",
+        "Designed secure JWT-based authentication and role-based access control to protect API routes and views."
+      ],
+      githubUrl: "https://github.com/prashant2930/team-task-manager-clean",
+      filterTags: ["Software Engineering", "Backend"]
     },
     {
       id: "resume-analyzer",
       title: "Resume Analyzer",
       category: "Applied Natural Language Processing",
-      technologies: ["Python", "Text Processing", "Information Extraction"],
-      description: "A practical text analyzer focused on parsing unformatted resume documents, extracting key skills, and comparing candidates against specific job descriptions to reveal talent gaps.",
+      technologies: ["Python", "Streamlit", "PyMuPDF", "PDF parsing", "Google Gemini API"],
+      description: "An interactive document scanner that parses PDF resumes and evaluates compatibility against job descriptions.",
       highlights: [
-        "Information Extraction: Engineered pythonic text processing workflows to cleanly ingest, tokenize, and normalize unstructured document layouts.",
-        "Gap Analysis Model: Designed an algorithmic keyword comparison engine mapping extracted candidate features directly against job requirement models.",
-        "Actionable Feedback: Created structured visual feedback reporting exact keyword overlap percentages and indicating explicit skill areas to address."
+        "Engineered text ingestion and parsing pipelines for unstructured PDF resume layouts using PyMuPDF.",
+        "Integrated the Google Gemini API (gemini-2.0-flash) to run deep contextual comparison and gap analysis against job descriptions.",
+        "Designed an interactive web dashboard in Streamlit featuring dynamic matching scores and downloadable feedback reports."
       ],
       githubUrl: "https://github.com/prashant2930/Resume-Analyzer",
-      isPrivate: false,
-      indexStr: "02",
-      imagePath: "/assets/projects/resume-analyzer.webp"
+      filterTags: ["Software Engineering", "AI / LLM"]
     },
     {
-      id: "consumer-behavior",
-      title: "Consumer Behavior Analysis",
-      category: "Data Analysis & Visualization",
-      technologies: ["Python", "Power BI", "Data Analysis", "Matplotlib"],
-      description: "A comprehensive analysis of retail customer transaction data, highlighting spending trends, segmenting customer groupings, and producing interactive business intelligence views.",
+      id: "java-search-engine",
+      title: "Java Information Retrieval Search Engine",
+      category: "Information Retrieval Systems",
+      technologies: ["Java 17", "Object-Oriented Programming", "Java NIO", "Data Structures"],
+      description: "Foundation of an information-retrieval search engine built in Java to understand document ingestion and retrieval architecture.",
       highlights: [
-        "Data Pipelines: Built custom ingestion and clean-up workflows in Python using NumPy and Pandas to address outlier records and missing values.",
-        "Segment Identification: Identified consumer clusters and purchase frequencies using mathematical aggregation models to isolate trend patterns.",
-        "Interactive Dashboards: Designed clean, highly scannable Power BI dashboards featuring cross-filtering and metric visualizations for key behavior metrics."
+        "Designed the document processing architecture utilizing modular Java 17 features.",
+        "Implemented filesystem-based document ingestion using Java NIO for path and directory streaming.",
+        "Structured modular Object-Oriented components including FileLoader and Document models (retrieval pipeline currently under development)."
       ],
-      isPrivate: true,
-      indexStr: "03",
-      imagePath: "/assets/projects/consumer-analysis.webp"
+      githubUrl: "https://github.com/prashant2930/java-tf-idf-search-engine",
+      filterTags: ["Software Engineering", "Java", "Backend"]
     },
     {
-      id: "team-task-manager",
-      title: "Team Task Manager",
-      category: "Software Design & Architecture",
-      technologies: ["Java", "Object-Oriented Design", "Clean Architecture"],
-      description: "A desktop organization platform supporting multi-user assignment queues, priority scheduling, and structured logging of milestone completion.",
+      id: "healththread-mvp",
+      title: "HealthThread MVP",
+      category: "Frontend Web Application",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Recharts"],
+      description: "Healthcare dashboard for managing medical records, symptoms, vitals, and care loops.",
       highlights: [
-        "Clean Design: Followed strict object-oriented design patterns to isolate business state from user display layers, promoting modular testing.",
-        "State Management: Implemented memory-efficient queue configurations to track active, pending, and archived task states concurrently.",
-        "Robust Workflows: Engineered deterministic priority sorting algorithms to arrange task sequences according to deadline proximity."
+        "Contributed to healthcare dashboard interfaces using React and TypeScript.",
+        "Integrated interfaces for vitals tracking, symptom management, and medical record workflows.",
+        "Contributed to doctor-brief generation and AI-assistant interface."
       ],
-      githubUrl: "https://github.com/prashant2930/team-task-manager-clean",
-      isPrivate: false,
-      indexStr: "04",
-      imagePath: "/assets/projects/task-manager.webp"
+      githubUrl: "https://github.com/prashant2930/healththread-mvp",
+      filterTags: ["Software Engineering", "Frontend"]
     }
   ] as Project[],
 
   skills: [
     {
       title: "Languages",
-      skills: ["Java", "Python", "SQL"]
+      skills: ["Java", "Python", "TypeScript", "SQL"]
     },
     {
-      title: "Core Computer Science",
-      skills: ["Data Structures and Algorithms", "Object-Oriented Programming", "Database Management Systems", "Operating Systems", "Computer Networks"]
+      title: "Core CS",
+      skills: ["Data Structures & Algorithms", "Object-Oriented Programming", "Database Management Systems", "Operating Systems", "Computer Networks"]
     },
     {
-      title: "Libraries",
-      skills: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn"]
+      title: "Development",
+      skills: ["REST APIs", "FastAPI", "React", "Software Testing", "Debugging"]
     },
     {
-      title: "Database Systems",
-      skills: ["MySQL"]
+      title: "AI/LLM",
+      skills: ["LLM Applications", "Prompt Engineering", "RAG", "LangChain"]
     },
     {
-      title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Power BI"]
-    },
-    {
-      title: "AI / Machine Learning Exposure",
-      skills: ["Supervised Learning", "Data Preprocessing", "Feature Engineering", "Model Evaluation", "Information Retrieval", "TF-IDF"]
+      title: "Tools",
+      skills: ["Git", "GitHub", "Pytest", "VS Code", "SQLite", "MongoDB"]
     }
   ] as SkillCategory[],
 
-  problemSolving: {
-    solvedCount: 200,
-    platforms: ["LeetCode", "CodeChef"],
-    focusAreas: [
-      "Arrays",
-      "Strings",
-      "Linked Lists",
-      "Stacks and Queues",
-      "Trees",
-      "Graphs",
-      "Searching and Sorting",
-      "Recursion",
-      "Dynamic Programming"
-    ]
-  },
-
   research: {
-    title: "Fake News Detection using TF-IDF",
-    role: "Co-authored Academic Research Paper",
-    description: "Collaborated on an undergraduate college project focusing on evaluating machine learning performance on textual categorization problems, specifically false content detection.",
-    focusAreas: ["TF-IDF", "Text Representation", "Information Retrieval", "Fake News Detection"]
+    title: "Efficiency vs. Accuracy: Revisiting TF-IDF in the Era of Transformer Models",
+    status: "Unpublished",
+    description: "A comparative study of TF-IDF and BERT focusing on classification accuracy, inference latency, memory usage, and deployment trade-offs for NLP systems."
   },
-
-  training: {
-    title: "Machine Learning Training",
-    provider: "Pyramid (at Noida Institute of Engineering and Technology)",
-    highlights: [
-      "Completed hands-on machine learning training covering supervised learning, model evaluation, and data preprocessing using Python-based ML workflows.",
-      "Built 2+ mini-projects applying supervised learning techniques and practical data processing.",
-      "Worked with feature engineering, preprocessing, and model evaluation techniques."
-    ]
-  } as TrainingItem,
 
   education: [
     {
@@ -216,40 +179,61 @@ export const PORTFOLIO_DATA = {
     }
   ] as EducationItem[],
 
-  achievements: [
+  training: [
     {
-      title: "Head Coordinator",
-      description: "Led a student team in organizing photography events, competitions, and club activities for the Megapixel Club (Photography Club) at NIET. Coordinated event planning and smooth cross-department execution.",
-      category: "leadership"
+      title: "Machine Learning Training",
+      provider: "Noida Institute of Engineering and Technology"
     },
     {
-      title: "Three-Time Photographer of the Month",
-      description: "Awarded 'Photographer of the Month' three times in recognition of outstanding creative eye and mastery of technical photography processes.",
-      category: "general"
-    },
-    {
-      title: "200+ Algorithmic Challenges Solved",
-      description: "Successfully resolved over 200 coding hurdles spanning major interactive training ecosystems, demonstrating strong competence in core DSA paradigms.",
-      category: "technical"
-    }
-  ] as AchievementItem[],
-
-  certifications: [
-    {
-      title: "Python for Data Science, AI & Development",
-      issuer: "IBM"
-    },
-    {
-      title: "Introduction to Artificial Intelligence",
-      issuer: "IBM"
+      title: "Database Management Systems",
+      provider: "Infosys Springboard"
     },
     {
       title: "Java Programming Fundamentals",
-      issuer: "Infosys Springboard"
+      provider: "Infosys Springboard"
     },
     {
-      title: "Data Structures & Algorithmic Learning",
-      issuer: "Coursera"
+      title: "Human-Centered Design for Inclusive Innovation",
+      provider: "Coursera"
+    },
+    {
+      title: "RAG & LLM Engineering",
+      provider: "Udemy",
+      status: "In Progress"
     }
-  ] as CertificationItem[]
+  ] as TrainingItem[],
+
+  achievements: [
+    {
+      description: "2nd Place — XPANSE entrepreneurship and business strategy competition"
+    },
+    {
+      description: "200+ Data Structures & Algorithms problems solved across LeetCode and CodeChef"
+    },
+    {
+      description: "Student team leadership and photography event coordination"
+    }
+  ] as AchievementItem[],
+
+  beyondCoding: {
+    title: "Beyond Coding",
+    points: [
+      {
+        title: "Integrity & Consistency",
+        description: "Approaching work and collaboration with transparency, delivering reliable results continuously."
+      },
+      {
+        title: "Attention to Detail",
+        description: "Ensuring clean layout alignment, precise code syntax, and bug-free interfaces."
+      },
+      {
+        title: "Active Listening",
+        description: "Understanding user and team needs thoroughly before architecture implementation."
+      },
+      {
+        title: "Visual Storytelling",
+        description: "Capturing human emotion, light, and perspective through dedicated photography."
+      }
+    ]
+  }
 };
